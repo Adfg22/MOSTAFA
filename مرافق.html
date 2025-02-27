@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المرافق - منتجع هول إن ون</title>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #006400, #228B22);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #FFD700;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #006400;
+            margin-bottom: 20px;
+        }
+
+        .facilities {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .facility-card {
+            background: linear-gradient(135deg, #228B22, #32CD32);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .facility-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .facility-card::after {
+            content: "✨";
+            font-size: 2rem;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .facility-card:hover::after {
+            opacity: 1;
+        }
+
+        footer {
+            background: #006400;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        /* تأثيرات الأنيميشن */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* تأثير عند التمرير */
+        .hidden {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>منتجع هول إن ون للجولف</h1>
+        <nav>
+            <ul>
+                <li><a href="موقع.html">الصفحة الرئيسية</a></li>
+                <li><a href="الحزم.html">الحزم</a></li>
+                <li><a href="اتصل بنا.html">اتصل بنا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>المرافق الفاخرة</h2>
+        <div class="facilities">
+            <div class="facility-card hidden">🏌️‍♂️ ثلاثة ملاعب لبطولات الجولف</div>
+            <div class="facility-card hidden">🏨 إقامة فاخرة في الفنادق</div>
+            <div class="facility-card hidden">☕ مطاعم ومقاهي متنوعة</div>
+            <div class="facility-card hidden">🛍️ متجر محترفين للجولف</div>
+            <div class="facility-card hidden">🌙 ساحة تدريب مُضاءة</div>
+            <div class="facility-card hidden">🎓 دروس جولف فردية وجماعية</div>
+            <div class="facility-card hidden">📱 تدريب رقمي بتقنيات حديثة</div>
+            <div class="facility-card hidden">💼 خدمة حمل الأدوات الاحترافية</div>
+        </div>
+    </div>
+
+   
+
+    <script>
+        // كود لتفعيل تأثير التمرير على المرافق
+        document.addEventListener("DOMContentLoaded", function() {
+            let hiddenElements = document.querySelectorAll(".hidden");
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            hiddenElements.forEach(element => observer.observe(element));
+        });
+    </script>
+
+</body>
+</html>
